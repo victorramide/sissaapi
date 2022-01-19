@@ -11,10 +11,9 @@ public class Diligencia {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String processo;
-    @Enumerated(EnumType.STRING)
-    private ClasseProcessual classe;
-    @Enumerated(EnumType.STRING)
-    private TipoDeDiligencia tipoDeDiligencia;
+    private String classe;
+    private String tipoDeDiligencia;
+    private String comentario;
     private Boolean prioridade;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime dataDaDiligencia = LocalDateTime.now();
@@ -67,19 +66,19 @@ public class Diligencia {
         this.processo = processo;
     }
 
-    public ClasseProcessual getClasse() {
+    public String getClasse() {
         return classe;
     }
 
-    public void setClasse(ClasseProcessual classe) {
+    public void setClasse(String classe) {
         this.classe = classe;
     }
 
-    public TipoDeDiligencia getTipoDeDiligencia() {
+    public String getTipoDeDiligencia() {
         return tipoDeDiligencia;
     }
 
-    public void setTipoDeDiligencia(TipoDeDiligencia tipoDeDiligencia) {
+    public void setTipoDeDiligencia(String tipoDeDiligencia) {
         this.tipoDeDiligencia = tipoDeDiligencia;
     }
 
@@ -113,5 +112,13 @@ public class Diligencia {
 
     public void setAdvogado(Advogado advogado) {
         this.advogado = advogado;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 }
