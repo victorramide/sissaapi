@@ -1,15 +1,21 @@
 package br.com.sissa.sissaapi.controller;
 
+import br.com.sissa.sissaapi.controller.dto.DetalhesDaDiligenciaDto;
 import br.com.sissa.sissaapi.controller.dto.DiligenciaDto;
+import br.com.sissa.sissaapi.controller.form.DiligenciaForm;
 import br.com.sissa.sissaapi.model.Diligencia;
 import br.com.sissa.sissaapi.repository.AdvogadoRepository;
 import br.com.sissa.sissaapi.repository.DiligenciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/diligencias")
@@ -26,5 +32,23 @@ public class DiligenciasController {
         return DiligenciaDto.converter(diligencias);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DetalhesDaDiligenciaDto> detalharDiligencia(@PathVariable Long id){
+
+        Optional<Diligencia> diligencia = diligenciaRepository.findById(id);
+        if(diligencia.isPresent()){
+            return ResponseEntity.ok(new DetalhesDaDiligenciaDto(diligencia.get()));
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping
+    @Transactional
+    public ResponseEntity<DiligenciaDto> cadastrarDiligencia(@RequestBody @Valid DiligenciaForm form, UriComponentsBuilder uriBuilder){
+        Diligencia diligencia = form.converter(advogadoRepository);
+        diligenciaRepository.save(diligencia);
+        URI uri = uriBuilder.path("/diligencias/{id}").buildAndExpand(diligencia.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DiligenciaDto(diligencia));
+    }
 
 }

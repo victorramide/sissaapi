@@ -15,14 +15,22 @@ public class Diligencia {
     private String tipoDeDiligencia;
     private String comentario;
     private Boolean prioridade;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime dataDaDiligencia = LocalDateTime.now();
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime dataDaConclusao;
     @ManyToOne
     private Advogado advogado;
 
     public Diligencia() {
+    }
+
+    public Diligencia(String processo, String classe, String tipoDeDiligencia, String comentario, Boolean prioridade, LocalDateTime dataDaConclusao, Advogado advogado) {
+        this.processo = processo;
+        this.classe = classe;
+        this.tipoDeDiligencia = tipoDeDiligencia;
+        this.comentario = comentario;
+        this.prioridade = prioridade;
+        this.dataDaConclusao = dataDaConclusao;
+        this.advogado = advogado;
     }
 
     @Override
