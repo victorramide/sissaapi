@@ -21,7 +21,7 @@ Quando fui apresentado a essa Arquitetura de Software a minha cabeça explodiu �
 ### IDE INTELLIJ
 Dentre todas as IDEs que eu testei nessa vida, as produzidas pela JetBrains sem dúvidas são as melhores. A integração com git/github é intuitiva e me faz sentir menos burro em versionamento de código. Atualmente tenho licença de estudante, mas pretendo comprar quando expirar.
 
-## Dificuldades no projeto
-Até o momento, por se tratar de um projeto simples sem módulo de segurança e nem dados mais complexos, não tive dificuldades.
+### POSTMAN
+Ferramenta usada para testar a API, está sendo bem útil aprender como usa-lo.
 
 
