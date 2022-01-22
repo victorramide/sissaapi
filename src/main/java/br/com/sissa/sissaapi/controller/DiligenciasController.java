@@ -2,6 +2,7 @@ package br.com.sissa.sissaapi.controller;
 
 import br.com.sissa.sissaapi.controller.dto.DetalhesDaDiligenciaDto;
 import br.com.sissa.sissaapi.controller.dto.DiligenciaDto;
+import br.com.sissa.sissaapi.controller.form.AtualizacaoDiligenciaForm;
 import br.com.sissa.sissaapi.controller.form.DiligenciaForm;
 import br.com.sissa.sissaapi.model.Diligencia;
 import br.com.sissa.sissaapi.repository.AdvogadoRepository;
@@ -49,6 +50,28 @@ public class DiligenciasController {
         diligenciaRepository.save(diligencia);
         URI uri = uriBuilder.path("/diligencias/{id}").buildAndExpand(diligencia.getId()).toUri();
         return ResponseEntity.created(uri).body(new DiligenciaDto(diligencia));
+    }
+
+    @PatchMapping("/{id}")
+    @Transactional
+    public ResponseEntity<DiligenciaDto> atualizarDiligencia(@PathVariable Long id,@RequestBody @Valid AtualizacaoDiligenciaForm form){
+        Optional<Diligencia> optional = diligenciaRepository.findById(id);
+        if(optional.isPresent()){
+            Diligencia diligencia = form.atualizar(id, diligenciaRepository);
+            return ResponseEntity.ok(new DiligenciaDto(diligencia));
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<?> removerDiligencia(@PathVariable Long id){
+        Optional<Diligencia> optional = diligenciaRepository.findById(id);
+        if(optional.isPresent()){
+            diligenciaRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

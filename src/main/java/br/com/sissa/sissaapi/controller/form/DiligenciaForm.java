@@ -6,6 +6,7 @@ import br.com.sissa.sissaapi.repository.AdvogadoRepository;
 import com.sun.istack.NotNull;
 
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class DiligenciaForm {
@@ -16,7 +17,7 @@ public class DiligenciaForm {
     @NotNull @NotEmpty
     private String tipoDeDiligencia;
     private Boolean prioridade;
-    private LocalDateTime dataDeConclusao;
+    private LocalDate dataDeConclusao;
     @NotNull @NotEmpty
     private String emailAdvogado;
     private String comentario;
@@ -54,11 +55,11 @@ public class DiligenciaForm {
         this.prioridade = prioridade;
     }
 
-    public LocalDateTime getDataDeConclusao() {
+    public LocalDate getDataDeConclusao() {
         return dataDeConclusao;
     }
 
-    public void setDataDeConclusao(LocalDateTime dataDeConclusao) {
+    public void setDataDeConclusao(LocalDate dataDeConclusao) {
         this.dataDeConclusao = dataDeConclusao;
     }
 
