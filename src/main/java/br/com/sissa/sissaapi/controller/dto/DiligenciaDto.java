@@ -2,7 +2,7 @@ package br.com.sissa.sissaapi.controller.dto;
 
 import br.com.sissa.sissaapi.model.Diligencia;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,7 +13,7 @@ public class DiligenciaDto {
     private String classe;
     private String diligencia;
     private Boolean prioridade;
-    private LocalDateTime dataDeConclusao;
+    private LocalDate dataDaConclusao;
     private String advogado;
 
     public DiligenciaDto(Diligencia diligencia){
@@ -22,7 +22,7 @@ public class DiligenciaDto {
         this.classe = diligencia.getClasse();
         this.diligencia = diligencia.getTipoDeDiligencia();
         this.prioridade = diligencia.getPrioridade();
-        this.dataDeConclusao = diligencia.getDataDaConclusao();
+        this.dataDaConclusao = diligencia.getDataDaConclusao();
         this.advogado = diligencia.getAdvogado().getOab()+"/"+diligencia.getAdvogado().getUf();
     }
 
@@ -50,8 +50,8 @@ public class DiligenciaDto {
         return prioridade;
     }
 
-    public LocalDateTime getDataDeConclusao() {
-        return dataDeConclusao;
+    public LocalDate getDataDaConclusao() {
+        return dataDaConclusao;
     }
 
     public String getAdvogado() {

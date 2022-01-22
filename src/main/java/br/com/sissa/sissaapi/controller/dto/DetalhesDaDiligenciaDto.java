@@ -3,6 +3,7 @@ package br.com.sissa.sissaapi.controller.dto;
 import br.com.sissa.sissaapi.model.Advogado;
 import br.com.sissa.sissaapi.model.Diligencia;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class DetalhesDaDiligenciaDto {
@@ -12,8 +13,8 @@ public class DetalhesDaDiligenciaDto {
     private String classe;
     private String tipoDeDiligencia;
     private Boolean prioridade;
-    private LocalDateTime dataDeConclusao;
-    private LocalDateTime dataDaDiligencia;
+    private LocalDate dataDeConclusao;
+    private LocalDate dataDaDiligencia;
     private Advogado advogado;
     private String comentario;
 
@@ -50,11 +51,11 @@ public class DetalhesDaDiligenciaDto {
         return prioridade;
     }
 
-    public LocalDateTime getDataDeConclusao() {
+    public LocalDate getDataDeConclusao() {
         return dataDeConclusao;
     }
 
-    public LocalDateTime getDataDaDiligencia() {
+    public LocalDate getDataDaDiligencia() {
         return dataDaDiligencia;
     }
 

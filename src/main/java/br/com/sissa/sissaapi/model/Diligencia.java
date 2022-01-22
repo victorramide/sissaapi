@@ -3,6 +3,7 @@ package br.com.sissa.sissaapi.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,15 +16,15 @@ public class Diligencia {
     private String tipoDeDiligencia;
     private String comentario;
     private Boolean prioridade;
-    private LocalDateTime dataDaDiligencia = LocalDateTime.now();
-    private LocalDateTime dataDaConclusao;
+    private LocalDate dataDaDiligencia = LocalDate.now();
+    private LocalDate dataDaConclusao;
     @ManyToOne
     private Advogado advogado;
 
     public Diligencia() {
     }
 
-    public Diligencia(String processo, String classe, String tipoDeDiligencia, String comentario, Boolean prioridade, LocalDateTime dataDaConclusao, Advogado advogado) {
+    public Diligencia(String processo, String classe, String tipoDeDiligencia, String comentario, Boolean prioridade, LocalDate dataDaConclusao, Advogado advogado) {
         this.processo = processo;
         this.classe = classe;
         this.tipoDeDiligencia = tipoDeDiligencia;
@@ -98,19 +99,19 @@ public class Diligencia {
         this.prioridade = prioridade;
     }
 
-    public LocalDateTime getDataDaDiligencia() {
+    public LocalDate getDataDaDiligencia() {
         return dataDaDiligencia;
     }
 
-    public void setDataDaDiligencia(LocalDateTime dataDaDiligencia) {
+    public void setDataDaDiligencia(LocalDate dataDaDiligencia) {
         this.dataDaDiligencia = dataDaDiligencia;
     }
 
-    public LocalDateTime getDataDaConclusao() {
+    public LocalDate getDataDaConclusao() {
         return dataDaConclusao;
     }
 
-    public void setDataDaConclusao(LocalDateTime dataDaConclusao) {
+    public void setDataDaConclusao(LocalDate dataDaConclusao) {
         this.dataDaConclusao = dataDaConclusao;
     }
 
