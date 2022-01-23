@@ -27,4 +27,14 @@ Ferramenta usada para testar a API, está sendo bem útil aprender como usa-lo.
 ## Dificuldades
 
 ### Listar os Advogados com suas diligências
+Ao gerar o Json com os Advogados eu pensei em colocar as diligências que cada um cadastrou junto a seus dados, porém me deparei com um loop infinito de dados, visto que sempre que eu chamava as diligências vinha os dados do Advogado também que por sua vez chamava a diligência novamente. Não sei se fui claro, então lá vai uma imagem:
+
+[Problema na apresentação dos Advogados](docs/001.png)
+
+A solução foi criar um método em AdvogadoDto para adicionar as diligências manipuladas pela classe DiligenciasDto separadamente, visto que essa não trazia o Advogado inteiro e tão somente uma String. Desta forma consegui adicionar as diligências atráves de um forEach e exibir ao usuário em um formato adequado.
+
+Talvez nesse caso não fosse necessário trazer os dados do Advogado na diligência, visto que já há a vinculação no próprio Advogado, mas para eliminar esse dado eu imagino que seria necessário criar um novo Dto para diligência sem essa informação, o que nesse momento acho desnecessário por se tratar de algo irrisório. (com certeza faria se a regra de negócio fosse rígida nesse sentido).
+
+O resultado final ficou assim: [Apresentação correta dos Advogados](docs/002.png)
+
 
