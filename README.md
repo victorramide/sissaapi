@@ -24,4 +24,7 @@ Dentre todas as IDEs que eu testei nessa vida, as produzidas pela JetBrains sem 
 ### POSTMAN
 Ferramenta usada para testar a API, está sendo bem útil aprender como usa-lo.
 
+## Dificuldades
+
+### Listar os Advogados com suas diligências
 
