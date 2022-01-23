@@ -95,4 +95,12 @@ public class Advogado {
     public void setUf(Uf uf) {
         this.uf = uf;
     }
+
+    public void setDiligencias(List<Diligencia> diligencias) {
+        this.diligencias = diligencias;
+    }
+
+    public List<Diligencia> getDiligencias() {
+        return diligencias;
+    }
 }
