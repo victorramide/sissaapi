@@ -22,6 +22,15 @@ public class Advogado {
     public Advogado() {
     }
 
+    public Advogado(String primeiroNome, String ultimoNome, String oab, Uf uf, String email, List<Diligencia> diligencias) {
+        this.primeiroNome = primeiroNome;
+        this.ultimoNome = ultimoNome;
+        this.oab = oab;
+        this.uf = uf;
+        this.email = email;
+        this.diligencias = diligencias;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
