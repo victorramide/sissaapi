@@ -35,6 +35,8 @@ Ao gerar o Json com os Advogados eu pensei em colocar as diligências que cada u
 
 Talvez nesse caso não fosse necessário trazer os dados do Advogado na diligência, visto que já há a vinculação no próprio Advogado, mas para eliminar esse dado eu imagino que seria necessário criar um novo Dto para diligência sem essa informação, o que nesse momento acho desnecessário por se tratar de algo irrisório. (com certeza faria se a regra de negócio fosse rígida nesse sentido).
 
+## Próximo passo
+Estou estudando sobre segurança da API, cache e monitoramento e pretendo implementar o que fizer sentido nesse projeto.
 
 
 
