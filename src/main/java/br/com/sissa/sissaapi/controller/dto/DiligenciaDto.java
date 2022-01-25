@@ -1,6 +1,7 @@
 package br.com.sissa.sissaapi.controller.dto;
 
 import br.com.sissa.sissaapi.model.Diligencia;
+import org.springframework.data.domain.Page;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,8 +27,8 @@ public class DiligenciaDto {
         this.advogado = diligencia.getAdvogado().getOab()+"/"+diligencia.getAdvogado().getUf();
     }
 
-    public static List<DiligenciaDto> converter(List<Diligencia> diligencias){
-        return diligencias.stream().map(DiligenciaDto::new).collect(Collectors.toList());
+    public static Page<DiligenciaDto> converter(Page<Diligencia> diligencias){
+        return diligencias.map(DiligenciaDto::new);
     }
 
     public Long getId() {

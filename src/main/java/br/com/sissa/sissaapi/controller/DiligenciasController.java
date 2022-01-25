@@ -8,6 +8,10 @@ import br.com.sissa.sissaapi.model.Diligencia;
 import br.com.sissa.sissaapi.repository.AdvogadoRepository;
 import br.com.sissa.sissaapi.repository.DiligenciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -15,7 +19,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,8 +31,9 @@ public class DiligenciasController {
     private DiligenciaRepository diligenciaRepository;
 
     @GetMapping
-    public List<DiligenciaDto> listar(){
-        List<Diligencia> diligencias = diligenciaRepository.findAll();
+    public Page<DiligenciaDto> listarDiligencias(@PageableDefault(sort = "id", direction = Sort.Direction.ASC,
+            page = 0, size = 10) Pageable paginacao){
+        Page<Diligencia> diligencias = diligenciaRepository.findAll(paginacao);
         return DiligenciaDto.converter(diligencias);
     }
 
