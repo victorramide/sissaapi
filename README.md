@@ -35,6 +35,11 @@ Ao gerar o Json com os Advogados eu pensei em colocar as diligências que cada u
 
 Talvez nesse caso não fosse necessário trazer os dados do Advogado na diligência, visto que já há a vinculação no próprio Advogado, mas para eliminar esse dado eu imagino que seria necessário criar um novo Dto para diligência sem essa informação, o que nesse momento acho desnecessário por se tratar de algo irrisório. (com certeza faria se a regra de negócio fosse rígida nesse sentido).
 
+### Decidir se faz sentido o uso de Cache na listagem de Advogados
+Como sabemos, o uso de cache no Spring via de regra aumenta a performance da aplicação por evitar consultas constantes ao Banco de Dados, porém, para recursos que são atualizados com frequencia pode não ser uma boa ideia já que haveria a necessidade de invalidar o cache a cada novo cadastro/alteração/exclusão. Essa API, caso estivesse em produção, sofreria um grande fluxo de cadastros de Advogados logo no inicio, porém, com o decorrer do tempo os cadastros iriam ser bem mais pontuais, pois os advogados que trabalham regularmente naquele fórum já estariam cadastrados.
+
+>[!SOLUÇÃO PRELIMINAR] No primeiro momento eu entendo que não faria sentido a utilização de cache nessa API pelos seguintes motivos: 1) A API seria local, com pouquissimos registros, o ganho de perfomance seria irrisório para justificar; 2) Não há previsão alguma de um fluxo acima de 300 requisições por dia (baseado no projeto em produção), portanto, sem necessidade de escalabilidade.
+
 ## Próximo passo
 Estou estudando sobre segurança da API, cache e monitoramento e pretendo implementar o que fizer sentido nesse projeto.
 
