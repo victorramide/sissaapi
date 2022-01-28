@@ -7,6 +7,7 @@ import com.sun.istack.NotNull;
 
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class DiligenciaForm {
 
@@ -79,7 +80,10 @@ public class DiligenciaForm {
     }
 
     public Diligencia converter(AdvogadoRepository advogadoRepository){
-        Advogado advogado = advogadoRepository.findByEmail(emailAdvogado);
-        return new Diligencia(processo, classe, tipoDeDiligencia, comentario, prioridade, dataDeConclusao, advogado);
+        Optional<Advogado> advogado = advogadoRepository.findByEmail(emailAdvogado);
+        if(advogado.isPresent()) {
+            return new Diligencia(processo, classe, tipoDeDiligencia, comentario, prioridade, dataDeConclusao, advogado.get());
+        }
+        return null;
     }
 }
