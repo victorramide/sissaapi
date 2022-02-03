@@ -1,8 +1,8 @@
 
 
-INSERT INTO ADVOGADO(primeiro_nome, ultimo_nome, email, senha, oab, uf) VALUES ('Victor', 'Ramide', 'victorramide@gmail.com','$2a$12$QBE4PLSFJkCNLzIXdWnI1efEL50z57Nkv4LWr/YLdELxotdGQdbEy', '52453', 'BA');
-INSERT INTO ADVOGADO(primeiro_nome, ultimo_nome, email, senha, oab, uf) VALUES ('João', 'Souza', 'eusoujoao@gmail.com','$2a$12$QBE4PLSFJkCNLzIXdWnI1efEL50z57Nkv4LWr/YLdELxotdGQdbEy', '88745', 'BA');
-INSERT INTO ADVOGADO(primeiro_nome, ultimo_nome, email, senha, oab, uf) VALUES ('Maria', 'Carvalho', 'maria.carvalho@gmail.com','$2a$12$QBE4PLSFJkCNLzIXdWnI1efEL50z57Nkv4LWr/YLdELxotdGQdbEy', '23555', 'BA');
+INSERT INTO ADVOGADO(primeiro_nome, ultimo_nome, email, senha, oab, uf) VALUES ('Victor', 'Ramide', 'victorramide@gmail.com','$2a$12$zOxbc3KtPbKmHqEFMnWgfOVFdyMq5MreX7ZQM9snN7Rbv8hWfAya6', '52453', 'BA');
+INSERT INTO ADVOGADO(primeiro_nome, ultimo_nome, email, senha, oab, uf) VALUES ('João', 'Souza', 'eusoujoao@gmail.com','$2a$12$zOxbc3KtPbKmHqEFMnWgfOVFdyMq5MreX7ZQM9snN7Rbv8hWfAya6', '88745', 'BA');
+INSERT INTO ADVOGADO(primeiro_nome, ultimo_nome, email, senha, oab, uf) VALUES ('Maria', 'Carvalho', 'maria.carvalho@gmail.com','$2a$12$zOxbc3KtPbKmHqEFMnWgfOVFdyMq5MreX7ZQM9snN7Rbv8hWfAya6', '23555', 'BA');
 
 
 INSERT INTO DILIGENCIA(processo, classe, tipo_de_diligencia, comentario, prioridade, data_da_diligencia, data_da_conclusao, advogado_id) VALUES ('8000455-25.2018.8.05.0001', 'Alimentos', 'Decisao', 'Requer deferimento da liminar', true, '2022-01-19', '2019-05-05', 1);
