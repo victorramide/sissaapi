@@ -44,7 +44,7 @@ Como sabemos, o uso de cache no Spring via de regra aumenta a performance da apl
 Não sei se é comum, mas ter contato com Spring Security com JWT, incluindo geração de token e devolução deste para o cliente me deixou tonto, vou precisar de algumas horas para absorver tanto conhecimento e entender passo a passo como funciona o código, MAS consegui implementar no projeto mesmo assim.
 
 ## Próximo passo
-Implementar o Spring boot Actuator e TDD (quero muito aprender a programar orientado a testes)
+Implementar o Spring boot Actuator para monitoramento da API e TDD (quero muito aprender a programar orientado a testes)
 
 
 
