@@ -40,8 +40,11 @@ Como sabemos, o uso de cache no Spring via de regra aumenta a performance da apl
 
 >[!SOLUÇÃO PRELIMINAR] No primeiro momento eu entendo que não faria sentido a utilização de cache nessa API pelos seguintes motivos: 1) A API seria local, com pouquissimos registros, o ganho de perfomance seria irrisório para justificar; 2) Não há previsão alguma de um fluxo acima de 300 requisições por dia (baseado no projeto em produção), portanto, sem necessidade de escalabilidade.
 
+### Implementação do Spring Security de modo geral
+Não sei se é comum, mas ter contato com Spring Security com JWT, incluindo geração de token e devolução deste para o cliente me deixou tonto, vou precisar de algumas horas para absorver tanto conhecimento e entender passo a passo como funciona o código, MAS consegui implementar no projeto mesmo assim.
+
 ## Próximo passo
-Estou estudando sobre segurança da API, cache e monitoramento e pretendo implementar o que fizer sentido nesse projeto.
+Implementar o Spring boot Actuator e TDD (quero muito aprender a programar orientado a testes)
 
 
 
